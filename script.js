@@ -48,12 +48,38 @@ const substractionBtn = document.querySelector("#substraction-btn");
 const multiplicationBtn = document.querySelector("#multiplication-btn");
 const divisionBtn = document.querySelector("#division-btn");
 let currentOperator;
+let previousNumber;
 
-additionBtn.addEventListener("click", () => setOperator("addition"));
-substractionBtn.addEventListener("click", () => setOperator("substraction"));
-multiplicationBtn.addEventListener("click", () => setOperator("multiplication"));
-divisionBtn.addEventListener("click", () => setOperator("division"));
+additionBtn.addEventListener("click", () => {
+    setPreNumber(display.textContent);
+    setOperator("addition");
+    clearDisplay();
+});
+substractionBtn.addEventListener("click", () => {
+    setPreNumber(display.textContent);
+    setOperator("substraction");
+    clearDisplay();
+});
+multiplicationBtn.addEventListener("click", () => {
+    setPreNumber(display.textContent);
+    setOperator("multiplication");
+    clearDisplay();
+});
+divisionBtn.addEventListener("click", () =>{
+    setPreNumber(display.textContent);
+    setOperator("division");
+    clearDisplay();
+});
 
 function setOperator(operator) {
     currentOperator = operator;
+}
+
+function setPreNumber(number) {
+    previousNumber = Number(number);
+    console.log(previousNumber)
+}
+
+function clearDisplay() {
+    display.textContent = "";
 }
