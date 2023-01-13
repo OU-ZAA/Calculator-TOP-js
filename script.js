@@ -47,8 +47,10 @@ const additionBtn = document.querySelector("#addition-btn");
 const substractionBtn = document.querySelector("#substraction-btn");
 const multiplicationBtn = document.querySelector("#multiplication-btn");
 const divisionBtn = document.querySelector("#division-btn");
+const equalBtn = document.querySelector("#equal-btn");
 let currentOperator;
 let previousNumber;
+let currentNumber;
 
 additionBtn.addEventListener("click", () => {
     setPreNumber(display.textContent);
@@ -70,6 +72,10 @@ divisionBtn.addEventListener("click", () =>{
     setOperator("division");
     clearDisplay();
 });
+equalBtn.addEventListener("click", () => {
+    setCurrNumber(display.textContent);
+    showResult();
+})
 
 function setOperator(operator) {
     currentOperator = operator;
@@ -77,7 +83,14 @@ function setOperator(operator) {
 
 function setPreNumber(number) {
     previousNumber = Number(number);
-    console.log(previousNumber)
+}
+
+function setCurrNumber(number) {
+    currentNumber = Number(number);
+}
+
+function showResult() {
+    display.textContent =    operate(currentOperator, previousNumber, currentNumber);
 }
 
 function clearDisplay() {
