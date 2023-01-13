@@ -25,3 +25,20 @@ function operate(operator, preNumber, currNumber) {
         return divide(preNumber, currNumber);
     }
 }
+
+function updateDisplay(number) {
+    const display = document.querySelector("#display");
+    if (display.textContent === "") {
+        display.textContent = number;
+    } else {
+        display.textContent = display.textContent + number;
+    }
+        
+} 
+
+const numbers = document.querySelectorAll("#numbers");
+[...numbers].map(number => {
+    number.addEventListener("click", () => {
+        updateDisplay(number.textContent)
+    })
+})
