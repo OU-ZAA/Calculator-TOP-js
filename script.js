@@ -26,8 +26,8 @@ function operate(operator, preNumber, currNumber) {
     }
 }
 
+const display = document.querySelector("#display");
 function updateDisplay(number) {
-    const display = document.querySelector("#display");
     if (display.textContent === "") {
         display.textContent = number;
     } else {
@@ -42,3 +42,18 @@ const numbers = document.querySelectorAll("#numbers");
         updateDisplay(number.textContent)
     })
 })
+
+const additionBtn = document.querySelector("#addition-btn");
+const substractionBtn = document.querySelector("#substraction-btn");
+const multiplicationBtn = document.querySelector("#multiplication-btn");
+const divisionBtn = document.querySelector("#division-btn");
+let currentOperator;
+
+additionBtn.addEventListener("click", () => setOperator("addition"));
+substractionBtn.addEventListener("click", () => setOperator("substraction"));
+multiplicationBtn.addEventListener("click", () => setOperator("multiplication"));
+divisionBtn.addEventListener("click", () => setOperator("division"));
+
+function setOperator(operator) {
+    currentOperator = operator;
+}
