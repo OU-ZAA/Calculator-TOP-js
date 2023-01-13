@@ -48,6 +48,7 @@ const substractionBtn = document.querySelector("#substraction-btn");
 const multiplicationBtn = document.querySelector("#multiplication-btn");
 const divisionBtn = document.querySelector("#division-btn");
 const equalBtn = document.querySelector("#equal-btn");
+const clearBtn = document.querySelector("#clear-btn");
 let currentOperator;
 let previousNumber;
 let currentNumber;
@@ -76,6 +77,7 @@ equalBtn.addEventListener("click", () => {
     setCurrNumber(display.textContent);
     showResult();
 })
+clearBtn.addEventListener("click", () => clearDisplay());
 
 function setOperator(operator) {
     currentOperator = operator;
@@ -90,7 +92,7 @@ function setCurrNumber(number) {
 }
 
 function showResult() {
-    display.textContent =    operate(currentOperator, previousNumber, currentNumber);
+    display.textContent = operate(currentOperator, previousNumber, currentNumber);
 }
 
 function clearDisplay() {
