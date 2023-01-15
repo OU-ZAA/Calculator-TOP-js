@@ -115,7 +115,7 @@ function operate(a, b) {
             computation = divide(a, b)
             break
     }
-    currentOperand = computation;
+    currentOperand = computation.toString();
     currentOperator = undefined;
     previousOperand = "";
 }
